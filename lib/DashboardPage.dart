@@ -21,7 +21,7 @@ class _DashboardPageState extends State{
         child: _buildAppBar(context),
       ),
        body: SingleChildScrollView(
-       padding: EdgeInsets.all(16),
+       padding: EdgeInsets.all(12),
         child: Column(
           children: [
             GridView.count(
@@ -40,7 +40,7 @@ class _DashboardPageState extends State{
             SizedBox(height: 20),
             _buildClinicInfoCard(),
             SizedBox(height: 20),
-            _buildClinicDetails(),
+            _buildClinicDetails(context),
           ],
         ),
       ),
@@ -49,13 +49,13 @@ class _DashboardPageState extends State{
 
   Widget _buildStatCard(String title, String value, IconData icon) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4), // Adjust outer padding
+    padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0), // Adjust outer padding
     child: Card(
       color: Colors.blue.shade50,
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
-        padding: const EdgeInsets.all(10.0), // Balanced inner padding
+        padding: const EdgeInsets.all(0.0), // Balanced inner padding
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -81,9 +81,7 @@ class _DashboardPageState extends State{
 
  Widget _buildClinicInfoCard() {
   return 
-  Padding(
-    padding: const EdgeInsets.all(12.0),
-    child: Container(
+   Container(
       decoration: BoxDecoration(
         color: Colors.blue[50], // Light blue background
         borderRadius: BorderRadius.circular(12),
@@ -96,7 +94,7 @@ class _DashboardPageState extends State{
           ),
         ],
       ),
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.all(8),
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,52 +148,58 @@ class _DashboardPageState extends State{
           ),
         ],
       ),
-    ),
+    
   );
 }
 
-  Widget _buildClinicDetails() {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      // Clinic Info Header
-      Container(
-        width:double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-        color: Color.fromARGB(255, 0, 13, 85),
-        child: Text(
-          'Clinic Info',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
+  Widget _buildClinicDetails( BuildContext context) {
+  return 
+  MediaQuery.removePadding(
+    context: context,
+  removeLeft: true, // Removes only top padding
+  removeRight: true,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Clinic Info Header
+        Container(
+          width:double.infinity,
+          //padding: EdgeInsets.zero,
+          color: Color.fromARGB(255, 0, 13, 85),
+          child: Text(
+            '  Clinic Info',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-      ),
-      // Clinic Info Content
-      Container(
-        height: 400,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          //borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              blurRadius: 5,
-              spreadRadius: 2,
-              offset: Offset(0, 2),
-            ),
-          ],
+        // Clinic Info Content
+        Container(
+          height: 200,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            //borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                blurRadius: 5,
+                spreadRadius: 2,
+                offset: Offset(0, 2),
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              _clinicInfoTile(Icons.business, 'Eye Care Clinic'),
+              _clinicInfoTile(Icons.phone, '+91 9988776655'),
+              _clinicInfoTile(Icons.image, 'Clinic Images'),
+            ],
+          ),
         ),
-        child: Column(
-          children: [
-            _clinicInfoTile(Icons.business, 'Eye Care Clinic'),
-            _clinicInfoTile(Icons.phone, '+91 9988776655'),
-            _clinicInfoTile(Icons.image, 'Clinic Images'),
-          ],
-        ),
-      ),
-    ],
+      ],
+    ),
   );
 }
 

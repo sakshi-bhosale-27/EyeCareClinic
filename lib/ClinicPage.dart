@@ -163,7 +163,7 @@ class MenuCard extends StatelessWidget {
               onTap: () {},
             ),
             if (item != items.last) 
-              const Divider(height: 1, indent: 16, endIndent: 16, color: Color.fromARGB(255, 223, 223, 223)),
+              const Divider(height: 1, indent: 16, endIndent: 16, color: Color.fromARGB(255, 239, 239, 239)),
           ],
         )).toList(),
       ),
