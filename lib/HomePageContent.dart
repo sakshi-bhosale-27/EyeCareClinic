@@ -1,3 +1,4 @@
+import 'package:eyecareclinic/DashboardPage.dart';
 import 'package:flutter/material.dart';
 
 import 'AddNewPatient.dart';
@@ -117,7 +118,15 @@ class HomePageContent extends StatelessWidget {
       children: [
         CircleAvatar(
           backgroundColor: Colors.white.withOpacity(0.3),
-          child: Icon(Icons.person, color: Colors.white),
+          child:IconButton(
+        icon: Icon(Icons.person, color: Colors.white),
+        onPressed: () {
+          Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Dashboardpage()),
+      );
+        },
+      ),
         ),
         SizedBox(width: 8), // Space between avatar and text
         Column(
