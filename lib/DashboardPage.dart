@@ -152,22 +152,18 @@ class _DashboardPageState extends State{
   );
 }
 
-  Widget _buildClinicDetails( BuildContext context) {
-  return 
-  MediaQuery.removePadding(
-    context: context,
-  removeLeft: true, // Removes only top padding
-  removeRight: true,
+  Widget _buildClinicDetails(BuildContext context) {
+  return Padding(
+    padding: EdgeInsets.zero, // Remove any parent padding
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Clinic Info Header
         Container(
-          width:double.infinity,
-          //padding: EdgeInsets.zero,
+          width: double.infinity, 
           color: Color.fromARGB(255, 0, 13, 85),
+          padding: const EdgeInsets.all(12), // Optional padding for text
           child: Text(
-            '  Clinic Info',
+            'Clinic Info',
             style: TextStyle(
               color: Colors.white,
               fontSize: 16,
@@ -175,12 +171,11 @@ class _DashboardPageState extends State{
             ),
           ),
         ),
-        // Clinic Info Content
         Container(
+          width: double.infinity,
           height: 200,
           decoration: BoxDecoration(
             color: Colors.white,
-            //borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.2),
