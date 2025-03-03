@@ -1,6 +1,8 @@
 import 'package:eyecareclinic/AddNewPatient.dart';
 import 'package:flutter/material.dart';
 
+import 'BookingSuccessfulPage.dart';
+
 class AddNewAppointment extends StatefulWidget {
   final String selectedDateTime;
   final String mode;
@@ -212,11 +214,13 @@ class _AddNewAppointmentState extends State<AddNewAppointment> {
                    
                     onPressed: () {
                       if (selectedPatient == null) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Please select a patient!")),
-                        );
+                        Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => AppointmentSuccessScreen()),
+      );
+                       
                       } else {
-                        print("Appointment Confirmed for ${selectedPatient!["name"]}");
+                       // print("Appointment Confirmed for ${selectedPatient!["name"]}");
                       }
                     },
                     style: ElevatedButton.styleFrom(
