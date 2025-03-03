@@ -1,3 +1,4 @@
+import 'package:eyecareclinic/ClinicPage.dart';
 import 'package:flutter/material.dart';
 import 'AppointmentList_Screen.dart';
 import 'HomePageContent.dart';
@@ -20,7 +21,8 @@ class _HomepageScreenState extends State<HomepageScreen> {
   final List<Widget> _screens = [
     HomePageContent(), // Home Screen content (to avoid rebuilding the entire scaffold)
     AppointmentPage(), // Appointment Screen
-    PatientListScreen(), // Uncomment when implemented
+    PatientListScreen(),
+    ClinicPage(), // Uncomment when implemented
     // ClinicScreen(), // Uncomment when implemented
   ];
 

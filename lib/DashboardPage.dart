@@ -21,7 +21,7 @@ class _DashboardPageState extends State{
         child: _buildAppBar(context),
       ),
        body: SingleChildScrollView(
-       //padding: EdgeInsets.all(),
+       padding: EdgeInsets.all(16),
         child: Column(
           children: [
             GridView.count(
